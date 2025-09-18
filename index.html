@@ -91,7 +91,7 @@
 </head>
 <body>
   <div class="card">
-    <h1>🎉 Happy Birthday! Mitali🎉</h1>
+    <h1>🎉 Happy Birthday! Mitali 🎉</h1>
     <p>
       Wishing you a bug-free year ahead, full of successful commits, smooth deployments, 
       and endless coffee ☕ to fuel your brilliant code.<br><br>
@@ -101,7 +101,7 @@
   </div>
 
   <!-- Hidden audio -->
-  <audio id="birthdaySong" src="https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav" autoplay muted playsinline></audio>
+  <audio id="birthdaySong" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c1ba2e761d.mp3?filename=happy-birthday-to-you-15371.mp3" autoplay muted playsinline></audio>
 
   <script>
     // Balloons
@@ -131,7 +131,7 @@
     window.addEventListener("load", () => {
       const song = document.getElementById("birthdaySong");
       song.play().then(() => {
-        setTimeout(() => { song.muted = false; }, 300);
+        setTimeout(() => { song.muted = false; }, 500);
       }).catch(err => {
         console.log("Autoplay blocked:", err);
       });
