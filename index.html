@@ -30,6 +30,7 @@
       color: white;
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
       animation: fadeIn 1.2s ease-in-out;
+      z-index: 10;
     }
 
     h1 {
@@ -69,7 +70,6 @@
       width: 80px;
       height: 100px;
       border-radius: 50%;
-      background-color: #FFD700;
       opacity: 0.7;
       animation: floatUp 8s linear infinite;
       z-index: 0;
@@ -127,7 +127,7 @@
   </div>
 
   <!-- Hidden audio -->
-  <audio id="birthdaySong" src="https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav"></audio>
+  <audio id="birthdaySong" src="https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav" autoplay playsinline></audio>
 
   <script>
     // Balloons
@@ -153,9 +153,21 @@
       document.body.appendChild(confetti);
     }
 
-    // Play song
+    // Autoplay with fallback
+    window.addEventListener("load", () => {
+      const song = document.getElementById("birthdaySong");
+      song.play().catch(() => {
+        song.muted = true;
+        song.play().then(() => {
+          setTimeout(() => song.muted = false, 500); // unmute after 0.5s
+        });
+      });
+    });
+
+    // Manual play button
     function playSong() {
-      document.getElementById("birthdaySong").play();
+      const song = document.getElementById("birthdaySong");
+      song.play();
     }
   </script>
 </body>
